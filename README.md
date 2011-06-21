@@ -1,13 +1,17 @@
 Socketify
 =========
 
-Getting started:
+**Getting started:**
 
  - run the program you want as a socket server:
    `./socketify /usr/bin/perl -npe 'tr/m-za-l/a-z/'`
  - run the `test_client.py` script with the input file
    (or just open a socket and write to it in your program)
    `python test_client.py README.md`
+
+You can use the options `-p port` and `-b bind_address` to
+select a different port or binding address. (Default is binding
+only to localhost, on port 4445).
 
 Why would this be more useful than inetd or similar programs?
 
