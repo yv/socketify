@@ -1,14 +1,26 @@
 import socket
 import sys
+from getopt import getopt
 
 BUF_SIZE=128
 BUF_NET=32768
-sock=socket.create_connection(('localhost','4445'))
 
-if len(sys.argv) > 1:
-    f=file(sys.argv[1])
+tcp_addr='localhost'
+tcp_port=4445
+
+(opts,args)=getopt(sys.argv[1:],'b:p:')
+for k,v in opts:
+    if k=='-b':
+        tcp_addr=v
+    elif k=='-p':
+        tcp_port=int(v)
+
+if args:
+    f=file(args[0])
 else:
     f=sys.stdin
+
+sock=socket.create_connection((tcp_addr,tcp_port))
 response=[]
 
 while True:
