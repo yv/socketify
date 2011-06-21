@@ -1,0 +1,4 @@
+^archive/
+^socketify
+~$
+^vars.c$
